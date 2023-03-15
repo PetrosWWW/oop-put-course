@@ -29,7 +29,7 @@ int main()
     if(option==1){
         while(1){
         int n;
-        cout<<endl<<endl<<"Options"<<endl<<endl<<"1.Add a book"<<endl<<"2.Display"<<endl<<"3.End process"<<endl;
+        cout<<endl<<"Options"<<endl<<endl<<"1.Add a book"<<endl<<"2.Display"<<endl<<"3.End process"<<endl;
         cin>>n;
         switch (n)
         {
