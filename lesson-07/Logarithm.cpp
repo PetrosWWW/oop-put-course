@@ -11,6 +11,9 @@ class Logarithm {
     if (argument <= 0) {
       throw std::invalid_argument("Invalid argument: must be greater than zero");
     }
+    if(base==1 && argument==1){
+      throw std::invalid_argument("Invalid argument and base: both cannot be a one");
+    }
     base_ = base;
     argument_ = argument;
   }
