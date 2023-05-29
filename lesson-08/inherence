@@ -1,0 +1,65 @@
+#include <iostream>
+#include <ctime>
+#include <string>
+using namespace std;
+
+class article {
+protected:
+    int id;
+    int price;
+    string name;
+public:
+    article(string _name, int _price, int _id) {
+        this->id = _id;
+        this->price = _price;
+        this->name = _name;
+    }
+
+    int uniqid(int ID) {
+        srand((unsigned)time(NULL));
+        int random = rand() % 10;
+        random = ID;
+        return this->id = ID;
+    }
+};
+
+class customer : public article {
+protected:
+    string email;
+    string name;
+    int id;
+
+public:
+    customer(string name_, string email_, int id_) : article("", 0, id_), name(name_), email(email_), id(id_) {}
+};
+
+class order : public customer {
+    int number;
+    string product_name;
+    int product_price;
+    
+public:
+    order(string name_, string email_, int id_, string product_name_, int product_price_, int product_id)
+        : customer(name_, email_, id_), number(product_id), product_name(product_name_), product_price(product_price_) {}
+
+    void addproduct(string &nameofp) {
+        cout << "Enter the name of the product: ";
+        getline(cin, nameofp);
+    }
+
+    int total() {
+        int quantity;
+        cout << "Enter the quantity of the product: ";
+        cin >> quantity;
+        return quantity * product_price;
+    }
+};
+
+int main() {
+    order myOrder("John Doe", "johndoe@example.com", 1, "Product 1", 5, 1); 
+    string productName;
+    myOrder.addproduct(productName);   
+    cout << "Total cost of the order: " << myOrder.total() <<" pln"<< endl;
+    
+    return 0;
+}
